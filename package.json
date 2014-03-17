@@ -1,6 +1,6 @@
 {
   "name": "Kashikoi",
-  "namespace": "kashikoi",
+  "namespace": "appkit",
   "APIMethod": "stub",
   "proxyURL": "http://localhost:8000",
   "proxyPath": "/api",
