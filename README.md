@@ -1,4 +1,4 @@
-# Kashikoi [![Build Status](https://travis-ci.org/wcweb/kashikoi.png)](https://travis-ci.org/wcweb/kashikoi)
+# Kashikoi [![Build Status](https://travis-ci.org/wcweb/Kashikoi.png)](https://travis-ci.org/wcweb/Kashikoi)
 extend Ember App Kit(EAK)
 
 ## preinstall
