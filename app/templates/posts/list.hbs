@@ -1,0 +1,40 @@
+<div class="postslistContent">
+{{#each post in controller}}
+<div class="well postContent">
+<h2>{{post.title}}{{post.id}}</h2>
+{{#link-to 'play-video' class="imgs"}}<img src="/assets/v2.jpg"  />{{/link-to}}
+<p>{{post.body}}</p>
+
+
+
+<section class="comments">
+	
+	<ul >
+	{{#each comment in post.comments}}
+	  <li>
+	    <div>{{comment.body}}</div>
+	  </li>
+	{{/each}}
+	</ul>
+</section>
+
+</div>
+{{/each}}
+<div class="well postContent">
+<h2>支气管哮喘的健康教育</h2>
+{{#link-to 'play-video' class="imgs"}}<img src="/assets/v2.jpg"  />{{/link-to}}
+<p>支气管哮喘是呼吸系统常见病和多发病。由于大气污染、吸烟、工业经济发展导致的理化因素
+、生物因子吸入及人口老龄化等因素，使支气管哮喘的发病率明显增加，给社会、家庭及患者本人造成了极大伤害。因此正确认识支气管哮喘非常重要。此微课重点阐述了支气管哮喘的临床表现、诊断和鉴别诊断，不仅能使学生学到相关的理论知识，正确认识支气管哮喘，也可以使社会人群了解支气管哮喘，从自身做起（如戒烟、保护环境等），预防上述疾病</p>
+
+<section class="comments">
+	
+	<ul >
+	{{#each comment in post.comments}}
+	  <li>
+	    <div>{{comment.body}}</div>
+	  </li>
+	{{/each}}
+	</ul>
+</section>
+</div>
+</div>

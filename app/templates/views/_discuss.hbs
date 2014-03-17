@@ -1,0 +1,29 @@
+<div style="width:700px;height:500px;">
+    <div class="talkwrapper">
+    <div id="talkList" style="width:700px; height:450px;overflow:auto;">
+    </div>
+    <form id="postDiscuss" class="form-horizontal" role="form">
+        <div class="form-group">
+            <div class="col-sm-12">
+        <input type="text" class="form-control" value="我想说..." id="postValue" style="width:90%;display:inline-block;margin-left:3px;" />
+          
+        <input class="btn btn-default" type="submit" value="发送" style="width:8%;"></input>
+            </div>
+        </div>
+    </form>
+</div>
+    <script>
+        // $("#postDiscuss").on('submit',function(e){
+        //     e.preventDefault();
+        //     socket.emit('postTalk', {msg:$("#postValue").val()});
+        //     $("#talkList").append($('<div class="talk-section"><span class="talk-user">我说：</span><div class="talk-content">'+$("#postValue").val()+'</div></div>'));
+        //      $("#talkList").animate({scrollTop:$("#talkList")[0].scrollHeight},1000); 
+        // });
+        // if(socket)
+        // socket.on('someOneTalk',function(data){
+        //     $("#talkList").append($('<div class="talk-section"><span class="talk-user">有人说：</span><div class="talk-content">'+data.msg+'</div></div>'));
+        //     $("#talkList").animate({scrollTop:$("#talkList")[0].scrollHeight},1000); 
+        // });
+         
+    </script>
+</div>

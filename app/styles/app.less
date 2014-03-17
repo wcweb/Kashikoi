@@ -1,0 +1,45 @@
+/* Put your CSS here */
+html, body {
+    margin: 20px;
+}
+@import "./components/_form.less";
+@import "./components/_player.less";
+@import "./components/_quiz.less";
+
+
+
+.postslistContent{
+    .postContent{
+        position: relative;
+        min-height: 220px;
+    h2{
+        margin:10px auto;
+        font-size: 24px;
+        text-indent: 12px;
+        border-left:4px solid #c38;
+    }
+
+    p,.comments{
+        margin-left: 170px;
+        text-indent: 24px;
+    }
+    .comments{
+        ul{
+            padding-left:0;
+            list-style: none;
+        }
+    }
+    .imgs{
+        position: absolute;
+        margin:5px;        
+        img{width:150px;}
+
+        }
+    }
+    
+}
+
+
+@keyframes domChanged { from { background: yellow; } }
+@-webkit-keyframes domChanged { from { background: yellow; } }
+.ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
