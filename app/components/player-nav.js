@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   // }.property('name')
   pages:['playerContent', 'paperContent','quizContent','discussContent','relativedContent'],
   defaultPageName:'playerContent',
-  currentPage:'discussContent',
+  currentPage:'playerContent',
   playerShowStatus:true, // true for big , false for small one;
   pageAnimated:true,
 
@@ -24,7 +24,7 @@ export default Ember.Component.extend({
               //$('#playerContent').animate({left:'+=700'},'fast');
 
               jp = jwplayer("player").setup({
-                        file: 'assets/demo.m4v',
+                        file:window.ENV.demoVideoPath,
                         flashplayer: 'AvaPlayer.swf',
                         height: 225,
                         width: 350
@@ -37,7 +37,7 @@ export default Ember.Component.extend({
               //});
              }else{
                jp = jwplayer("player").setup({
-                        file: 'assets/demo.m4v',
+                        file:window.ENV.demoVideoPath,
                         flashplayer: 'AvaPlayer.swf',
                         height: 500,
                         width: 700

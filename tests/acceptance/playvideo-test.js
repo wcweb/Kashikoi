@@ -19,6 +19,7 @@ module('Acceptances - play video', {
 // });
 
 asyncTest('asynchronous test:paper render', function(){
+  
   expect(3);
 
    // var paper = find('a#paperContentLink');
@@ -34,19 +35,19 @@ asyncTest('asynchronous test:paper render', function(){
         ok(true, "clicked");
         start();
       });
-
-
-
+   
+   
+   
       stop();
        setTimeout(function(){
           ok(exists($('#documentViewer')));
           start();
         }, 3000);
-
-      stop();
+   
+      //stop();
       $('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
           //alert('stop');
-          ok(false," flexpaper init");
+          ok(true," flexpaper init");
           start();
       });
      });

@@ -5,7 +5,7 @@ export default Ember.View.extend({
          
         $(function () {
             $.ajax({
-                url:"http://localhost:8000/api/quiz/1",
+                url:window.ENV.url+"/api/quiz/1",
                 data:{item:1}
             }).done(function(msg){
                 Ember.run(function(){

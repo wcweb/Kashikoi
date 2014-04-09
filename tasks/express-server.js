@@ -24,9 +24,7 @@ module.exports = function(grunt) {
 
     app.use(lock);
     app.use(express.compress());
-    
-    
-    console.log('proxyMethod :'+ proxyMethod);
+
     if (proxyMethod === 'stub') {
       grunt.log.writeln('Using API Stub');
 

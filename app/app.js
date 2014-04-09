@@ -39,6 +39,13 @@ Ember.Handlebars.registerHelper("echo",function(value) {
 });
 
 
+App.ApplicationSerializer = DS.RESTSerializer.extend({
+  primaryKey: '_id'
+});
+App.PostSerializer = DS.RESTSerializer.extend({
+  primaryKey: '_id'
+});
+
 import debug from './helpers/debug';
 debug(Ember);
 

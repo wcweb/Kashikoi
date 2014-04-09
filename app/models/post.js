@@ -4,8 +4,9 @@ var attr = DS.attr,
 	
 var Post = DS.Model.extend({
 	title: attr(),
-	comments: hasMany('comment'),
+	comments: hasMany('comment', {async: true}),
 	user: attr(),
+  body: attr(),
 });
 
 export default Post;

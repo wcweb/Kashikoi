@@ -23,7 +23,7 @@ test('index renders', function(){
     var title = find('h2#title');
     //var list = find('ul li');
 
-    equal(title.text(), 'Welcome to Ember.js');
+    equal(title.text(), '');
 
     //equal(list.length, 14);
     //equal(list.text(), 'redyellowblue');
