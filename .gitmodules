@@ -1,0 +1,3 @@
+[submodule "third-part/SlickQuiz"]
+	path = third-part/SlickQuiz
+	url = https://github.com/jewlofthelotus/SlickQuiz.git
