@@ -1,8 +1,8 @@
 #!/bin/bash
 # Ember app kit version update
 APPDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi"
-PATCHDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/tmp/eakpatch"
-EAKDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/tmp/ember-app-kit"
+PATCHDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/eak/eakpatch"
+EAKDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/eak/ember-app-kit"
 
 cd ${EAKDIR}
 git pull

@@ -29,5 +29,3 @@ test('index renders', function(){
     //equal(list.text(), 'redyellowblue');
   });
 });
-
-

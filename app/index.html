@@ -53,9 +53,11 @@
     <!-- @endif -->
 
     <script src="/vendor/ember-data/ember-data.js"></script>
-    <script src="/vendor/loader.js"></script>
+    <script src="/vendor/loader.js/loader.js"></script>
     <script src="/vendor/ember-resolver/dist/ember-resolver.js"></script>
-    <script src="/vendor/ic-ajax/main.js"></script>
+    <script src="/vendor/ember-shim.js"></script>
+    <script src="/vendor/ic-ajax/dist/named-amd/main.js"></script>
+    <script src="/vendor/ember-load-initializers/ember-load-initializers.js"></script>
 
     <!--Put before the initialization of the application, respect order, bs-core.min.js must run before any other bs components -->
     <!--Core of Bootstrap for Ember -->
@@ -74,9 +76,19 @@
 
   <!-- endbuild -->
 
+  <!-- @if dist=false -->
+  <style>
+    @keyframes domChanged { from { background: yellow; } }
+    @-webkit-keyframes domChanged { from { background: yellow; } }
+    .ember-view { animation: domChanged 1s; -webkit-animation: domChanged 1s; }
+  </style>
+  <!-- @endif -->
   <!-- @if tests=true -->
+  <script src="/vendor/ember-shim.js"></script>
   <link rel="stylesheet" href="/vendor/qunit/qunit/qunit.css">
   <script src="/vendor/qunit/qunit/qunit.js"></script>
+  <script src="/vendor/qunit-shim.js"></script>
+  <script src="/vendor/ember-qunit/dist/named-amd/main.js"></script>
 
   <style>
     #ember-testing-container {
@@ -95,8 +107,6 @@
     }
   </style>
   <!-- @endif -->
-
-
 
 </head>
 <body>
@@ -119,7 +129,7 @@
 
   <!-- @if tests=false -->
   <script>
-    window.App = require('appkit/app')["default"].create();
+    window.App = require('appkit/app')['default'].create();
   </script>
   <!-- @endif -->
 
