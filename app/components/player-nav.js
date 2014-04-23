@@ -4,140 +4,163 @@ export default Ember.Component.extend({
   // style: function(){
   //   return 'color: ' + this.get('name') + ';';
   // }.property('name')
-  pages:['playerContent', 'paperContent','quizContent','discussContent','relativedContent'],
-  defaultPageName:'playerContent',
-  currentPage:'playerContent',
-  playerShowStatus:true, // true for big , false for small one;
-  pageAnimated:true,
+  pages: ['playerContent', 'paperContent', 'quizContent', 'discussContent', 'relativedContent'],
+  defaultPageName: 'playerContent',
+  currentPage: 'playerContent',
+  smallW: 265,
+  smallH: 225,
+  orignW: 700,
+  orighH: 500,
+  playerShowStatus: true, // true for big , false for small one;
+  pageAnimated: true,
 
   // nothing happend didInsertElement.
-  didInsertElement:function(){
+  didInsertElement: function() {
     var pages = this.get('pages') || [],
-        currentPage = this.get('currentPage') || '';
-        var that = this,jp;
-    pages.forEach(function(elem,idx){
-        if(pages[idx] !== currentPage && pages[idx]!== 'playerContent'){
-            $('#'+pages[idx]).hide();
-        }
+      currentPage = this.get('currentPage') || '';
+    var that = this,
+      jp;
+    pages.forEach(function(elem, idx) {
+      if (pages[idx] !== currentPage && pages[idx] !== 'playerContent') {
+        $('#' + pages[idx]).hide();
+      }
     });
-            if(currentPage !== 'playerContent'){
-              //$('#playerContent').animate({left:'+=700'},'fast');
+    var orignW = this.get('orignW'),
+        orignH = this.get('orignH'),
+        smallW = this.get('smallW'),
+        smallH = this.get('smallH');
 
-              jp = jwplayer("player").setup({
-                        file:window.ENV.demoVideoPath,
-                        flashplayer: 'AvaPlayer.swf',
-                        height: 225,
-                        width: 350
-                    }).onReady(function(){
-                      console.log("jwplayer ready ");
-                    });
-                    
-              //jp.onReady(function(){
-                     that.get('togglePlayer')(false);  
-              //});
-             }else{
-               jp = jwplayer("player").setup({
-                        file:window.ENV.demoVideoPath,
-                        flashplayer: 'AvaPlayer.swf',
-                        height: 500,
-                        width: 700
-                    }).onReady(function(){
-                      console.log("jwplayer ready ");
-                    });
-             }
-        
-    this.set('pageAnimated','true');
-  },
+    orignW = $('#playerContent').width();
+    orignH = orignW*9/16;
+    $('#playerWrapper').height(orignH);
+    smallW = $('#playerWrapper').width() - orignW;
+    smallH = smallW*9/16;
+    $(pages).each(function(idx,ele){
+      console.log(ele);
+      $('#'+ele).height(orignH);
+    });
 
-  togglePlayer: function(){
+    this.set('orignW', orignW);
+    this.set('smallW', smallW);
+    this.set('orignH', orignH);
+    if (currentPage !== 'playerContent') {
+      //$('#playerContent').animate({left:'+=700'},'fast');
+
+      jp = jwplayer("player").setup({
+        file: window.ENV.demoVideoPath,
+        flashplayer: 'AvaPlayer.swf',
+        height: smallH,
+        width: smallW
+      }).onReady(function() {
+        console.log("jwplayer ready ");
+      });
+
+      //jp.onReady(function(){
+      that.get('togglePlayer')(false);
+      //});
+    } else {
+      jp = jwplayer("player").setup({
+        file: window.ENV.demoVideoPath,
+        flashplayer: 'AvaPlayer.swf',
+        height: orignH,
+        width: orignW
+      }).onReady(function() {
+        console.log("jwplayer ready ");
+      });
+    }
+
+    this.set('pageAnimated', 'true');
+  }.property('orignW','orignH','smallW','smallH'),
+
+  togglePlayer: function() {
     var playerShowStatus = this.get('playerShowStatus') || false;
     var that = this;
-    return function(isPlayerClick){
-            
-            if(isPlayerClick){
+    return function(isPlayerClick) {
+      var orignW = that.get('orignW'),
+        smallW = that.get('smallW'),
+        smallH = that.get('smallH');
+      if (isPlayerClick) {
 
-                that.set('pageAnimated',false);
-                $('#playerContent').animate({
-                    //opacity: 0.25,
-                    left: "-=700"
-                  }, 800, function() {
-                    $('#player').animate({
-                      width:"700",
-                      height: "500"
-                    },400,function(){
-                      // Animation complete.
-                      that.set('pageAnimated',true);
-                      that.set('playerShowStatus',true);
-                    });
-                    
-                    $("#playerNav").animate({
-                        top:"-=225"
-                    }, 'fast');
-                  });
+        that.set('pageAnimated', false);
+        $('#playerContent').animate({
+          //opacity: 0.25,
+          left: "-=" + orignW
+        }, 800, function() {
+          $('#player').animate({
+            width: orignW,
+            height: "500"
+          }, 400, function() {
+            // Animation complete.
+            that.set('pageAnimated', true);
+            that.set('playerShowStatus', true);
+          });
 
-            
-            }else{
-                if(playerShowStatus ){
-                    that.set('pageAnimated',false);
-                    $("#playerNav").animate({
-                        top:"+=225"
-                    }, 'fast',function(){
-                        //console.log($('#player'));
-                      
+          $("#playerNav").animate({
+            top: "-=" + smallH
+          }, 'fast');
+        });
 
-                      $('#player').animate({
-                        width:"350",
-                        height: "225"
-                      },400,function(){
-                          $('#playerContent').animate({
-                          //opacity: 0.25,
-                          left: "+=700"
-                          }, 800, function() {
-                          // Animation complete.
-                            that.set('pageAnimated',true);
-                            that.set('playerShowStatus',false);
-                        });
-                        
-                      });
-                    });
-                    
-                    
-                }
-            }
-        };
-    }.property('playerShowStatus','pageAnimated'),
 
-  togglePage: function(){
-    var currentPage = this.get('currentPage') || '',
-        that = this;
-    return function(nextPage){
-        if(currentPage === '') return;
-        if(currentPage !== nextPage){
-            if(currentPage !== 'playerContent')
-            $("#"+currentPage).hide();
-            $("#"+nextPage).show();
-            that.set('currentPage',nextPage);
+      } else {
+        if (playerShowStatus) {
+          that.set('pageAnimated', false);
+          $("#playerNav").animate({
+            top: "+="+ smallH
+          }, 'fast', function() {
+            //console.log($('#player'));
+
+
+            $('#player').animate({
+              width: smallW,
+              height: smallH
+            }, 400, function() {
+              $('#playerContent').animate({
+                //opacity: 0.25,
+                left: "+=" + orignW
+              }, 800, function() {
+                // Animation complete.
+                that.set('pageAnimated', true);
+                that.set('playerShowStatus', false);
+              });
+
+            });
+          });
+
+
         }
+      }
+    };
+  }.property('playerShowStatus', 'pageAnimated','orignW','smallW','smallH'),
+
+  togglePage: function() {
+    var currentPage = this.get('currentPage') || '',
+      that = this;
+    return function(nextPage) {
+      if (currentPage === '') return;
+      if (currentPage !== nextPage) {
+        if (currentPage !== 'playerContent')
+          $("#" + currentPage).hide();
+        $("#" + nextPage).show();
+        that.set('currentPage', nextPage);
+      }
     };
   }.property('currentPage'),
 
-  actions:{
-    navClicked:function(pageName){
-        var defaultPageName = this.get('defaultPageName') || 
-                                this.get('pages')[0]|| "";
+  actions: {
+    navClicked: function(pageName) {
+      var defaultPageName = this.get('defaultPageName') ||
+        this.get('pages')[0] || "";
 
-         if(this.get('currentPage') !== pageName && 
-            this.get('pageAnimated')){
-            if(pageName === defaultPageName){
-                this.get('togglePlayer')(true);
-            }else{
-                this.get('togglePlayer')(false);
-            }
-
-            this.get('togglePage')(pageName);
+      if (this.get('currentPage') !== pageName &&
+        this.get('pageAnimated')) {
+        if (pageName === defaultPageName) {
+          this.get('togglePlayer')(true);
+        } else {
+          this.get('togglePlayer')(false);
         }
+
+        this.get('togglePage')(pageName);
+      }
     }
   }
 });
-
-

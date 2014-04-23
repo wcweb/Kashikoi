@@ -1,8 +1,12 @@
 #!/bin/bash
 # Ember app kit version update
-APPDIR="~/myprojectdir"
-PATCHDIR="/tmp/eakpatch"
-EAKDIR="/tmp/ember-app-kit-master"
+APPDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi"
+PATCHDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/tmp/eakpatch"
+EAKDIR="/Users/wcweb/documents/developer/nodejs/Kashikoi/tmp/ember-app-kit"
+
+cd ${EAKDIR}
+git pull
+cd ${APPDIR}
 
 # first generate patches of important files
 FILES="bower.json package.json Gruntfile.js testem.json .jshintrc .bowerrc" # app/app.js app/adapters/application.js"

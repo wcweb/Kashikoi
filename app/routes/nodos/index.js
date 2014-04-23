@@ -9,7 +9,7 @@ renderTemplate: function() {
     //   outlet: 'posts',
     //   controller: controller
     // });
-    this.render('posts/new');
+    this.render('nodos/new');
   }
 
 });

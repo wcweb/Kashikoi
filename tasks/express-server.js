@@ -4,7 +4,6 @@ module.exports = function(grunt) {
       Helpers = require('./helpers'),
       fs = require('fs'),
       path = require('path'),
-      sio = require('socket.io'),
       request = require('request');
 
   /**
@@ -18,8 +17,6 @@ module.exports = function(grunt) {
 
     var app = express(),
         done = this.async(),
-        server = require('http').createServer(app),
-        io = sio.listen(server),
         proxyMethod = proxyMethodToUse || grunt.config('express-server.options.APIMethod');
 
     app.use(lock);
@@ -44,10 +41,15 @@ module.exports = function(grunt) {
     if (target === 'debug') {
       // For `expressServer:debug`
 
-      // Add livereload middlware after lock middleware if enabled
+      // Add livereload middleware after lock middleware if enabled
       if (Helpers.isPackageAvailable("connect-livereload")) {
-        app.use(require("connect-livereload")());
+        var liveReloadPort = grunt.config('watch.options.livereload');
+        app.use(require("connect-livereload")({port: liveReloadPort}));
       }
+
+      // YUIDoc serves static HTML, so just serve the index.html
+      app.all('/docs', function(req, res) { res.redirect(302, '/docs/index.html'); });
+      app.use(static({ urlRoot: '/docs', directory: 'docs' }));
 
       // These three lines simulate what the `copy:assemble` task does
       app.use(static({ urlRoot: '/config', directory: 'config' }));
@@ -68,11 +70,7 @@ module.exports = function(grunt) {
     if (isNaN(port) || port < 1 || port > 65535) {
       grunt.fail.fatal('The PORT environment variable of ' + process.env.PORT + ' is not valid.');
     }
-    //app.listen(port);
-    server.listen(port);
-
-    require('../api-stub/sockets')(io);
-
+    app.listen(port);
     grunt.log.ok('Started development server on port %d.', port);
     if (!this.flags.keepalive) { done(); }
   });

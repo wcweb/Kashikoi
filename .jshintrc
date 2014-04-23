@@ -7,8 +7,6 @@
     "Ember": true,
     "Em": true,
     "DS": true,
-    "console":true,
-    "jwplayer":true,
     "$": true
   },
   "node" : false,

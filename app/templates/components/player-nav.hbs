@@ -1,18 +1,36 @@
-<ul class="nav navlist">
-	<li>
-<a {{action "navClicked" "playerContent"}}>播放</a>
-	</li>
-	<li>
-<a id="paperContentLink" {{action "navClicked" "paperContent"}}>内容</a>
-	</li>
-	<li>
-<a {{action "navClicked" "quizContent"}}>测试</a>
-	</li>
-	<li>
-<a {{action "navClicked" "discussContent"}}>讨论</a>
-	</li>
-	<li>
-<a {{action "navClicked" "relativedContent"}}>扩展</a>
-	</li>
-</ul>
-
+<div  id="playerWrapper" class="playerWrapper">
+    <div id="playerNav" class="playerNav" style="position:absolute; right:0;z-index:90;width:30%;">
+        <ul class="nav navlist">
+        	<li>
+        <a {{action "navClicked" "playerContent"}}>播放</a>
+        	</li>
+        	<li>
+        <a id="paperContentLink" {{action "navClicked" "paperContent"}}>内容</a>
+        	</li>
+        	<li>
+        <a {{action "navClicked" "quizContent"}}>测试</a>
+        	</li>
+        	<li>
+        <a {{action "navClicked" "discussContent"}}>讨论</a>
+        	</li>
+        	<li>
+        <a {{action "navClicked" "relativedContent"}}>扩展</a>
+        	</li>
+        </ul>
+    </div>
+    <div id="playerContent" class="flashContent tab-content active" style="position:absolute;z-index:101;width:70%;">
+        {{view "play-video/player"}}
+    </div>
+    <div id="paperContent" style="position:absolute;z-index:100;width:70%;">
+        {{view "play-video/paper"}}
+    </div>
+    <div id="quizContent" style="position:absolute; z-index:102;width:70%;">
+        {{view "play-video/quiz"}}
+    </div>
+    <div id="discussContent" style="position:absolute; z-index:102;width:70%;">
+        {{view "play-video/discuss"}}   
+    </div>
+    <div id="relativedContent" style="position:absolute; z-index:102;width:70%;">
+        {{view "play-video/relatived"}}   
+    </div>
+</div>

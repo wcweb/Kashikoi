@@ -12,7 +12,6 @@ export default Ember.Route.extend({
   //   //   outlet: 'posts',
   //   //   controller: controller
   //   // });
-    
   // },
   model: function() {
 

@@ -1,13 +1,18 @@
 export default Ember.View.extend({
     templateName: 'views/_quiz',
-    name:'fuck bob',
+    name:function(){
+      return "boo foo";
+    }.property(),
+    orignW:700,
     didInsertElement:function(){
-         
+        this.set('orignW',$('#quizContent').width());
         $(function () {
             $.ajax({
                 url:window.ENV.url+"/api/quiz/1",
                 data:{item:1}
             }).done(function(msg){
+                
+              
                 Ember.run(function(){
                     var options = {
                         json:msg,

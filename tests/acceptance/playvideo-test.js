@@ -19,15 +19,10 @@ module('Acceptances - play video', {
 // });
 
 asyncTest('asynchronous test:paper render', function(){
-  
   expect(3);
 
    // var paper = find('a#paperContentLink');
     //var paperObject = find('#documentViewer');
-    
-    
-   
-   
     Ember.run(function(){
       stop();
       click("a#paperContentLink");
@@ -35,15 +30,11 @@ asyncTest('asynchronous test:paper render', function(){
         ok(true, "clicked");
         start();
       });
-   
-   
-   
       stop();
        setTimeout(function(){
           ok(exists($('#documentViewer')));
           start();
         }, 3000);
-   
       //stop();
       $('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
           //alert('stop');
@@ -60,7 +51,6 @@ asyncTest('asynchronous test:paper render', function(){
     // });
 
     //equal(find('#documentViewer').text(),'this is paper');
-      
 
 });
 

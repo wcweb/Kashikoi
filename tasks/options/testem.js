@@ -7,7 +7,6 @@ module.exports = {
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       test_page: 'tmp/result/tests/index.html',
       routes: {
-        '/assets/ppt.swf': 'public/assets/ppt.swf',
         '/tests/tests.js': 'tmp/result/tests/tests.js',
         '/assets/app.js': 'tmp/result/assets/app.js',
         '/assets/templates.js': 'tmp/result/assets/templates.js',
@@ -27,7 +26,6 @@ module.exports = {
       port: (parseInt(process.env.PORT || 7358, 10) + 1),
       test_page: 'tmp/result/tests/index.html',
       routes: {
-        '/assets/ppt.swf': 'public/assets/ppt.swf',
         '/tests/tests.js': 'tmp/result/tests/tests.js',
         '/assets/app.js': 'tmp/result/assets/app.js',
         '/assets/templates.js': 'tmp/result/assets/templates.js',
