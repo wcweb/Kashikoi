@@ -5,7 +5,7 @@ export default Ember.View.extend({
     Ember.run(function() {
       $('#documentViewer').FlexPaperViewer({
         config: {
-          SWFFile: '/assets/ppt.swf',
+          SWFFile: 'http://localhost:3000/assets/ppt.swf',
           //SWFFile : '/vendor/flexpaper_2.2.3/docs/Paper.pdf.swf',
           //PDFFile : '/vendor/flexpaper_2.2.3/pdf/Paper.pdf',
           jsDirectory: '/vendor/flexpaper_2.2.3/js/',

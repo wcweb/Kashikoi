@@ -8,11 +8,9 @@ export default Ember.View.extend({
         this.set('orignW',$('#quizContent').width());
         $(function () {
             $.ajax({
-                url:window.ENV.url+"/api/quiz/1",
+                url:"http://localhost:3000/api/quiz/1",
                 data:{item:1}
             }).done(function(msg){
-                
-              
                 Ember.run(function(){
                     var options = {
                         json:msg,
@@ -27,16 +25,12 @@ export default Ember.View.extend({
                     };
                     $('#slickQuiz').slickQuiz(options);
                 });
-                
-               
             },function(e){
                 Ember.run(function(){
 
                 });
             });
-            
         });
-            
     }
 });
 

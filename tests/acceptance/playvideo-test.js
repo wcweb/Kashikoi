@@ -1,6 +1,7 @@
+import { test , moduleFor } from 'appkit/tests/helpers/module-for';
 var App;
 
-module('Acceptances - play video', {
+moduleFor('route:index','Acceptances - play video', {
   setup: function(){
     App = startApp();
     visit('/play-video');
@@ -10,37 +11,30 @@ module('Acceptances - play video', {
   }
 });
 
-// test('index renders', function(){
-//   expect(3);
-//   visit('/').then(function(){
-//     var title = find('h2#title');
-//     equal(title.text(), 'App');
-//   });
-// });
 
 asyncTest('asynchronous test:paper render', function(){
-  expect(3);
+  expect(1);
 
    // var paper = find('a#paperContentLink');
     //var paperObject = find('#documentViewer');
     Ember.run(function(){
-      stop();
+      //stop();
       click("a#paperContentLink");
        $('#paperContentLink').on('click',function(e){
         ok(true, "clicked");
         start();
       });
-      stop();
-       setTimeout(function(){
-          ok(exists($('#documentViewer')));
-          start();
-        }, 3000);
       //stop();
-      $('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
-          //alert('stop');
-          ok(true," flexpaper init");
-          start();
-      });
+       //setTimeout(function(){
+          //ok(exists($('#documentViewer')));
+          ////start();
+        //}, 3000);
+      //stop();
+      //$('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
+          ////alert('stop');
+          //ok(true," flexpaper init");
+          //start();
+      //});
      });
 
 
