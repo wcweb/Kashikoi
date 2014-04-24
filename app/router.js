@@ -8,9 +8,12 @@ Router.map(function() {
     this.route('index');
     this.route('list');
     this.route('new');
+    this.route('show', { path: ':nodo_id' });
   });
   this.resource('users', function(){
     this.route('index');
+    this.route('list');
+    this.route('show', { path: ':user_id' });
   });
   this.route('play-video');
   this.route('quiz');

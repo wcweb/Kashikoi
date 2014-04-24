@@ -1,8 +1,8 @@
 {
   "name": "app-kit",
   "namespace": "appkit",
-  "APIMethod": "stub",
-  "proxyURL": "http://localhost:8000",
+  "APIMethod": "proxy",
+  "proxyURL": "http://localhost:3000",
   "proxyPath": "/api",
   "docURL": "http://localhost:8000/docs/index.html",
   "version": "0.0.0",
@@ -51,6 +51,7 @@
     "originate": "~0.1.5",
     "loom": "~3.1.2",
     "connect-livereload": "~0.3.1",
-    "grunt-es6-import-validate": "0.0.6"
+    "grunt-es6-import-validate": "0.0.6",
+    "grunt-contrib-less": "~0.11.0"
   }
 }

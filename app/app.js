@@ -10,6 +10,11 @@ var App = Ember.Application.extend({
   modulePrefix: 'appkit', // TODO: loaded via config
   Resolver: Resolver
 });
+//Ember={
+  //imports: {
+    //console: window.console
+  //}
+//};
 Ember.RSVP.configure('onerror', function(error) {
   Ember.Logger.assert(false, error);
 });
@@ -20,18 +25,9 @@ Ember.LinkView.reopen({
 Ember.TextField.reopen({
   attributeBindings: ['data-toggle', 'data-placement']
 });
-loadInitializers(App, 'appkit');
 
-// Ember.Handlebars.registerHelper("debug",function(optionalValue) {
-//     console.log("Current Context");
-//     console.log("====================");
-//     console.log(this);
-//     if (optionalValue) {
-//       console.log("Value");
-//       console.log("====================");
-//       console.log(optionalValue);
-//     }
-// });
+import debug from './helpers/debug';
+debug(Ember);
 
 Ember.Handlebars.registerHelper("echo",function(value) {
     console.log(value);
@@ -39,14 +35,7 @@ Ember.Handlebars.registerHelper("echo",function(value) {
 });
 
 
-App.ApplicationSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
-});
-App.PostSerializer = DS.RESTSerializer.extend({
-  primaryKey: '_id'
-});
 
-import debug from './helpers/debug';
-debug(Ember);
 
+loadInitializers(App, 'appkit');
 export default App;

@@ -5,9 +5,9 @@
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span class="icon-bar">&nbsp;</span>
+        <span class="icon-bar">&nbsp;</span>
+        <span class="icon-bar">&nbsp;</span>
       </button>
       <a class="navbar-brand" href="#"> 微课 </a>
     </div>
@@ -16,14 +16,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         {{#link-to 'index' tagName="li" }}<a href="#">首页</a>{{/link-to}}
-         {{#link-to 'posts.list' tagName="li" }}<a href="#">列表</a>{{/link-to}}
-        {{#link-to 'posts.new' tagName="li" }}<a href="#">发布</a>{{/link-to}}
+         {{#link-to 'nodos.list' tagName="li" }}<a href="#">列表</a>{{/link-to}}
+        {{#link-to 'nodos.new' tagName="li" }}<a href="#">发布</a>{{/link-to}}
         {{#link-to 'play-video' tagName="li" }}<a href="#">示例</a>{{/link-to}}
 
+        {{#link-to 'users.index' tagName="li" }}<a href="#">user</a>{{/link-to}}
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action=''>
         <div class="form-group">
-         
           {{input type="text" value=search action="query" class="form-control" placeholder="搜索"}}
         </div>
         <button type="submit" class="btn btn-default">搜索</button>
@@ -31,11 +31,11 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">李老师</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">控制面板 <b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">控制面板 <b class="caret">&nbsp;</b></a>
           <ul class="dropdown-menu">
             <li><a href="#">我的视频</a></li>
             <li><a href="#">个人信息</a></li>
-            <li class="divider"></li>
+            <li class="divider">&nbsp;</li>
             <li><a href="#">注销</a></li>
           </ul>
         </li>

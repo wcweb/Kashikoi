@@ -7,11 +7,10 @@ var debug= function(ember){
       console.log("Current Context");
       console.log("====================");
       console.log(this);
- 
       if (optionalValue) {
         console.log("Value");
         console.log("====================");
-        console.log(optionalValue);
+        console.dir(optionalValue);
       }
     });
 };

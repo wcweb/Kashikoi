@@ -6,7 +6,8 @@ var Nodo = DS.Model.extend({
 	title: attr(),
 	comments: hasMany('comment', {async: true}),
 	user: attr(),
-  body: attr(),
+  body: belongsTo('user'),
+  video : attr()
 });
 
 export default Nodo;

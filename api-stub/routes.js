@@ -49,7 +49,7 @@ module.exports = function(server) {
         server.get('/posts/:id', function(req, res) {
             res.send(post);
         });
-        
+
         server.get('/quiz/:id',function(req,res){
             // var quizs = {
     //             "info": {
@@ -123,7 +123,7 @@ module.exports = function(server) {
     //         };
             res.format({
                 json: function(){
-                    res.send('');
+                    res.send('you are stub');
                 }
             });
         });

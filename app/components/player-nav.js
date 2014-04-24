@@ -1,9 +1,4 @@
 export default Ember.Component.extend({
-  // classNames: ['pretty-color'],
-  // attributeBindings: ['style'],
-  // style: function(){
-  //   return 'color: ' + this.get('name') + ';';
-  // }.property('name')
   pages: ['playerContent', 'paperContent', 'quizContent', 'discussContent', 'relativedContent'],
   defaultPageName: 'playerContent',
   currentPage: 'playerContent',
@@ -13,6 +8,7 @@ export default Ember.Component.extend({
   orighH: 500,
   playerShowStatus: true, // true for big , false for small one;
   pageAnimated: true,
+  videoFile: '',
 
   // nothing happend didInsertElement.
   didInsertElement: function() {
@@ -29,6 +25,7 @@ export default Ember.Component.extend({
         orignH = this.get('orignH'),
         smallW = this.get('smallW'),
         smallH = this.get('smallH');
+    var videoFile = this.get('videoFile');
 
     orignW = $('#playerContent').width();
     orignH = orignW*9/16;
@@ -40,6 +37,7 @@ export default Ember.Component.extend({
       $('#'+ele).height(orignH);
     });
 
+    console.log('what the fuck here');
     this.set('orignW', orignW);
     this.set('smallW', smallW);
     this.set('orignH', orignH);
@@ -47,7 +45,8 @@ export default Ember.Component.extend({
       //$('#playerContent').animate({left:'+=700'},'fast');
 
       jp = jwplayer("player").setup({
-        file: window.ENV.demoVideoPath,
+        //file: window.ENV.demoVideoPath,
+        file: videoFile,
         flashplayer: 'AvaPlayer.swf',
         height: smallH,
         width: smallW
@@ -60,7 +59,8 @@ export default Ember.Component.extend({
       //});
     } else {
       jp = jwplayer("player").setup({
-        file: window.ENV.demoVideoPath,
+        //file: window.ENV.demoVideoPath,
+        file: videoFile,
         flashplayer: 'AvaPlayer.swf',
         height: orignH,
         width: orignW
@@ -70,13 +70,13 @@ export default Ember.Component.extend({
     }
 
     this.set('pageAnimated', 'true');
-  }.property('orignW','orignH','smallW','smallH'),
-
+  },
   togglePlayer: function() {
     var playerShowStatus = this.get('playerShowStatus') || false;
     var that = this;
     return function(isPlayerClick) {
       var orignW = that.get('orignW'),
+        orignH = that.get('orignH'),
         smallW = that.get('smallW'),
         smallH = that.get('smallH');
       if (isPlayerClick) {
@@ -84,11 +84,12 @@ export default Ember.Component.extend({
         that.set('pageAnimated', false);
         $('#playerContent').animate({
           //opacity: 0.25,
+          height: orignH,
           left: "-=" + orignW
         }, 800, function() {
           $('#player').animate({
             width: orignW,
-            height: "500"
+            height: orignH
           }, 400, function() {
             // Animation complete.
             that.set('pageAnimated', true);
@@ -116,6 +117,7 @@ export default Ember.Component.extend({
             }, 400, function() {
               $('#playerContent').animate({
                 //opacity: 0.25,
+                height: smallH,
                 left: "+=" + orignW
               }, 800, function() {
                 // Animation complete.

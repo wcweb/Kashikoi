@@ -1,5 +1,5 @@
 export default Ember.Route.extend({
-renderTemplate: function() {
+  //renderTemplate: function() {
     //var controller = this.controllerFor('Post');
     //console.log(controller);
     // Render the `favoritePost` template into
@@ -9,7 +9,7 @@ renderTemplate: function() {
     //   outlet: 'posts',
     //   controller: controller
     // });
-    this.render('nodos/new');
-  }
+    //this.render('nodos/new');
+  //}
 
 });

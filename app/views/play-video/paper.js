@@ -1,5 +1,4 @@
-export
-default Ember.View.extend({
+export default Ember.View.extend({
   templateName: 'views/_paper',
   name: 'fuck bob',
   didInsertElement: function() {

@@ -1,0 +1,24 @@
+<div class="nodoslistContent">
+  {{#each nodo in model}}
+    <div class="well nodoContent">
+      {{ debug nodo }}
+      <h2>{{nodo.title}}</h2>
+      {{#link-to 'nodos.show' nodo class="imgs"}}
+        <img src="/assets/v2.jpg"  />
+      {{/link-to}}
+      <b>{{ nodo.user }}</b>
+      <p>{{nodo.body}}</p>
+
+      <section class="comments">
+        <ul >
+        {{#each comment in nodo.comments}}
+          <li>
+            <div>{{comment.body}}</div>
+          </li>
+        {{/each}}
+        </ul>
+      </section>
+
+    </div>
+  {{/each}}
+</div>

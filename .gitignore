@@ -11,6 +11,8 @@
 !/vendor/ember-shim.js
 !/vendor/qunit-shim.js
 
+!/vendor/third-part
+
 # misc
 /.sass-cache
 /connect.lock

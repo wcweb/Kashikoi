@@ -1,1 +1,13 @@
-this is user index.
+{{#each user in model }}
+
+  <div class="well">
+    <h2>
+      {{#link-to 'users.show' user class="image" }}
+      {{ user.username }}
+      - {{ user.name }}
+      {{/link-to }}
+    </h2>
+    <p> role : {{ user.role }}<br/>
+        email : {{ user.email }} </p>
+  </div>
+{{/each }}
