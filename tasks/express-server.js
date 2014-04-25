@@ -66,9 +66,9 @@ module.exports = function(grunt) {
       app.use(static({ file: 'dist/index.html', ignoredFileExtensions: /\.\w{1,5}$/ })); // Gotta catch 'em all
     }
 
-    app.use(static({ urlRoot: '/thirdpart', directory: 'thirdpart' }));
-    app.use(static({ urlRoot: '/third-part', directory: 'third-part' }));
-    console.dir(app);
+    //app.use(static({ urlRoot: '/thirdpart', directory: 'thirdpart' }));
+    //app.use(static({ urlRoot: '/third-part', directory: 'third-part' }));
+
     var port = parseInt(process.env.PORT || 8000, 10);
     if (isNaN(port) || port < 1 || port > 65535) {
       grunt.fail.fatal('The PORT environment variable of ' + process.env.PORT + ' is not valid.');
