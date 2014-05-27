@@ -3,54 +3,54 @@ module.exports = function(server) {
   // Create an API namespace, so that the root does not 
   // have to be repeated for each end point.
     server.namespace('/api', function() {
-        var post = {
-          "post": {
-            "id": 1,
-            "title": "Rails is omakase",
-            "comments": ["1", "2"],
-            "user" : "dhh"
-          },
+        // var post = {
+ //          "post": {
+ //            "id": 1,
+ //            "title": "Rails is omakase",
+ //            "comments": ["1", "2"],
+ //            "user" : "dhh"
+ //          },
+ // 
+ //          "comments": [{
+ //            "id": "1",
+ //            "body": "Rails is unagi"
+ //          }, {
+ //            "id": "2",
+ //            "body": "Omakase O_o"
+ //          }]
+ //        };
+ //        var posts = {
+ // 
+ //              "posts": [{
+ //                "id": 1,
+ //                "title": "ship",
+ //                "comments": ["1", "2"],
+ //                "user" : "dhh",
+ //              },{
+ //                 "id": 2,
+ //                "title": "Rr",
+ //                "comments": ["1", "2"],
+ //                "user" : "dhh",
+ //              }],
+ // 
+ //              "comments": [{
+ //                "id": "1",
+ //                "body": "Rails is unagi"
+ //              }, {
+ //                "id": "2",
+ //                "body": "Omakase O_o"
+ //              }]
+ // 
+ //        }
+ //        server.get('/posts', function(req,res){
+ //            res.send(posts);
+ //        });
+ //        // Return fixture data for '/api/posts/:id'
+ //        server.get('/posts/:id', function(req, res) {
+ //            res.send(post);
+ //        });
 
-          "comments": [{
-            "id": "1",
-            "body": "Rails is unagi"
-          }, {
-            "id": "2",
-            "body": "Omakase O_o"
-          }]
-        };
-        var posts = {
-
-              "posts": [{
-                "id": 1,
-                "title": "ship",
-                "comments": ["1", "2"],
-                "user" : "dhh",
-              },{
-                 "id": 2,
-                "title": "Rr",
-                "comments": ["1", "2"],
-                "user" : "dhh",
-              }],
-
-              "comments": [{
-                "id": "1",
-                "body": "Rails is unagi"
-              }, {
-                "id": "2",
-                "body": "Omakase O_o"
-              }]
-
-        }
-        server.get('/posts', function(req,res){
-            res.send(posts);
-        });
-        // Return fixture data for '/api/posts/:id'
-        server.get('/posts/:id', function(req, res) {
-            res.send(post);
-        });
-
-        server.get('/quiz/:id',function(req,res){
+        // server.get('/quiz/:id',function(req,res){
             // var quizs = {
     //             "info": {
     //                 "name":    "小测试!!",
@@ -121,12 +121,12 @@ module.exports = function(server) {
     //                 }
     //             ]
     //         };
-            res.format({
-                json: function(){
-                    res.send('you are stub');
-                }
-            });
-        });
+            // res.format({
+ //                json: function(){
+ //                    res.send('you are stub');
+ //                }
+ //            });
+ //        });
 
     });
 

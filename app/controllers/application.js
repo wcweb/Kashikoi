@@ -12,7 +12,10 @@ var ApplicationController = Ember.Controller.extend({
         // the current value of the text field
         var query = this.get('search');
         this.transitionToRoute('search', { query: query });
-      }
+      },
+       error: function(reason) {
+         console.log(reason);
+       }
     }
 });
 

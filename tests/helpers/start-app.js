@@ -1,5 +1,5 @@
-import Application from 'appkit/app';
-import Router from 'appkit/router';
+import Application from 'kashikoi/app';
+import Router from 'kashikoi/router';
 
 function startApp(attrs) {
   var App;

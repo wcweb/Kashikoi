@@ -1,3 +1,5 @@
+
+
 export default Ember.View.extend({
     templateName: 'views/_quiz',
     name:function(){
@@ -7,10 +9,10 @@ export default Ember.View.extend({
     didInsertElement:function(){
         this.set('orignW',$('#quizContent').width());
         $(function () {
-            $.ajax({
-                url:"http://localhost:3000/api/quiz/1",
+            Ember.ajax({
+                url:"/api/quiz/1",
                 data:{item:1}
-            }).done(function(msg){
+            }).then(function(msg){
                 Ember.run(function(){
                     var options = {
                         json:msg,

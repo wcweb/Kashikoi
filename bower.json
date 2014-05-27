@@ -13,10 +13,10 @@
     "loader.js": "git://github.com/stefanpenner/loader.js",
     "ember-load-initializers": "git://github.com/stefanpenner/ember-load-initializers.git#0.0.1",
     "jwplayer-mirror": "",
-    "pdfobject":"https://github.com/pipwerks/PDFObject.git#master",
-    "bootstrap": "~3.0.0"
-  },
-  "resolutions": {
-    "ember": "~1.5.0"
+    "pdfobject": "https://github.com/pipwerks/PDFObject.git#master",
+    "slickquiz": "https://github.com/wcweb/SlickQuiz.git#master",
+    "flexpaper": "https://github.com/wcweb/flexpaperClone.git#master",
+    "bootstrap": "~3.0.0",
+    "jquery-cookie": "~1.4.1"
   }
 }

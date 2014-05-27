@@ -37,11 +37,12 @@
   <!-- build:js(tmp/result) /assets/vendor.min.js -->
 
     <script src="/vendor/jquery/jquery.js"></script>
+    <script src="/vendor/jquery-cookie/jquery.cookie.js"></script>
 	<script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
 	<script src="/vendor/jwplayer-mirror/jwplayer.js"></script>
   <script src="/vendor/jwplayer-mirror/jwplayer.html5.js"></script>
   <script src="/vendor/slickquiz/js/slickquiz.js"></script>
-  <script src="/vendor/flexpaper_2.2.3/js/flexpaper.js"></script>
+  <script src="/vendor/flexpaper/js/flexpaper.js"></script>
   <script src="/vendor/pdfobject/pdfobject.js"></script>
 
     <!-- @if dist=false -->
@@ -129,7 +130,11 @@
 
   <!-- @if tests=false -->
   <script>
-    window.App = require('appkit/app')['default'].create();
+    window.AppConfig = {
+      isClientApp : false,
+      course_name: 'Course%201'
+    };
+    window.App = require('kashikoi/app')['default'].create();
   </script>
   <!-- @endif -->
 

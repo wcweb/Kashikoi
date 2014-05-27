@@ -1,0 +1,7 @@
+<form {{action login on="submit"}}>
+  <input name='grant_type' value='password' type="hidden">
+  <input name='scope' value='offline_access' type="hidden">
+  {{view Ember.TextField valueBinding="loginOrEmail" placeholder="Login or Email"}}
+  {{view Ember.TextField valueBinding="password" type="password" placeholder="Password"}}
+  <button type="submit" class="btn">Login</button>
+</form>

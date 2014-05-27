@@ -1,7 +1,7 @@
 import { test, moduleFor } from 'ember-qunit';
 
 
-import Index from 'appkit/routes/index';
+import Index from 'kashikoi/routes/index';
 
 moduleFor('route:index', "Unit - IndexRoute");
 

@@ -1,6 +1,6 @@
 {
-  "name": "app-kit",
-  "namespace": "appkit",
+  "name": "kashikoi",
+  "namespace": "kashikoi",
   "APIMethod": "proxy",
   "proxyURL": "http://localhost:3000",
   "proxyPath": "/api",

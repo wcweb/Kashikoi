@@ -17,6 +17,11 @@ Router.map(function() {
   });
   this.route('play-video');
   this.route('quiz');
+  
+  this.resource('session', function(){
+    this.route('new');
+    this.route('destroy');
+  });
 });
 
 export default Router;

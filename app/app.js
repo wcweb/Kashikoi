@@ -1,13 +1,24 @@
 import Resolver from 'ember/resolver';
 import loadInitializers from 'ember/load-initializers';
 
+import ajax from 'ic-ajax';
+
+Ember.ajax = ajax;
+
+// @TODO determi this is a app or just a course in a app.
+// get course id
+
+
+
+
+
 var App = Ember.Application.extend({
   LOG_ACTIVE_GENERATION:    true,
   LOG_MODULE_RESOLVER:      true,
   LOG_TRANSITIONS:          true,
   LOG_TRANSITIONS_INTERNAL: true,
   LOG_VIEW_LOOKUPS:         true,
-  modulePrefix: 'appkit', // TODO: loaded via config
+  modulePrefix: 'kashikoi', // TODO: loaded via config
   Resolver: Resolver
 });
 //Ember={
@@ -30,12 +41,17 @@ import debug from './helpers/debug';
 debug(Ember);
 
 Ember.Handlebars.registerHelper("echo",function(value) {
-    console.log(value);
     return value;
 });
 
 
 
 
-loadInitializers(App, 'appkit');
+
+
+loadInitializers(App, 'kashikoi');
+
+
+
+
 export default App;
