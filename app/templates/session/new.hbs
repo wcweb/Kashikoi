@@ -35,12 +35,14 @@ Your refresh token is:<pre><span id="refresh_token">None yet, press the button</
                     "Authorization": "Basic YWJjMTIzOnNzaC1zZWNyZXQ="
                 },
                 dataType: 'json',
-                url: "/api/oauth/token",
-                data: 'grant_type=password&username=bob&password=secret&scope=offline_access',
+                url: "http://localhost:1234/oauth/token",
+                data: 'grant_type=password&username=foobar1Test&password=foobar&scope=offline_access',
                 success: function (result) {
+              
                     access_token = result.access_token;
                     $("#access_token").html(result.access_token);
                     $("#refresh_token").html(result.refresh_token);
+                     
                 },
                 failure: function(result) {
                     $("#access_token").html(result);
@@ -50,13 +52,15 @@ Your refresh token is:<pre><span id="refresh_token">None yet, press the button</
 
         $("#button_1").click(function () {
             $("#protectedEndPointData").html("Calling EndPoint");
+                 
             $.ajax({
                 headers: {
                     "Authorization": "Bearer " + access_token
                 },
-                url: "/api/protectedEndPoint",
+                url: "http://localhost:1234/api/userinfo",
                 success: function (result) {
                     $("#protectedEndPointData").html(result);
+                  
                 },
                 failure: function(result) {
                     $("#protectedEndPointData").html("failure");

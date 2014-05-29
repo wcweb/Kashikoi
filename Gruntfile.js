@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 
   // Default Task
   // ------------------
-  grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test']);
+  grunt.registerTask('default', "Build (in debug mode) & test your application.", ['test','watch']);
 
 
   // Servers
@@ -138,7 +138,7 @@ module.exports = function(grunt) {
                      'clean:debug', 'build:debug', 'testem:ci:browsers' ]);
 
   grunt.registerTask('test:server', "Alias to `testem:run:basic`. Be sure to install testem first using `npm install -g testem`", [
-                     'testem:run:basic' ]);
+                     'testem:run:basic']);
 
   // Worker tasks
   // =================================

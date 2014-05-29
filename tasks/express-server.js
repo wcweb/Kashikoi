@@ -4,6 +4,7 @@ module.exports = function(grunt) {
       Helpers = require('./helpers'),
       fs = require('fs'),
       path = require('path'),
+      https = require('https'),
       request = require('request');
 
   /**
@@ -74,6 +75,15 @@ module.exports = function(grunt) {
     if (isNaN(port) || port < 1 || port > 65535) {
       grunt.fail.fatal('The PORT environment variable of ' + process.env.PORT + ' is not valid.');
     }
+    
+    
+    // var options = {
+    //     key: fs.readFileSync('../../../certs/privatekey.pem'),
+    //     cert: fs.readFileSync('../../../certs/certificate.pem')
+    // };
+    
+    
+    // https.createServer(options, app).listen(3000);
     app.listen(port);
     grunt.log.ok('Started development server on port %d.', port);
     if (!this.flags.keepalive) { done(); }

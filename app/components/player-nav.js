@@ -33,11 +33,10 @@ export default Ember.Component.extend({
     smallW = $('#playerWrapper').width() - orignW;
     smallH = smallW*9/16;
     $(pages).each(function(idx,ele){
-      console.log(ele);
       $('#'+ele).height(orignH);
     });
 
-    console.log('what the fuck here');
+
     this.set('orignW', orignW);
     this.set('smallW', smallW);
     this.set('orignH', orignH);
@@ -51,7 +50,7 @@ export default Ember.Component.extend({
         height: smallH,
         width: smallW
       }).onReady(function() {
-        console.log("jwplayer ready ");
+        // console.log("jwplayer ready ");
       });
 
       //jp.onReady(function(){
@@ -65,7 +64,7 @@ export default Ember.Component.extend({
         height: orignH,
         width: orignW
       }).onReady(function() {
-        console.log("jwplayer ready ");
+        // console.log("jwplayer ready ");
       });
     }
 

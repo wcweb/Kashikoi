@@ -18,24 +18,27 @@ asyncTest('asynchronous test:paper render', function(){
    // var paper = find('a#paperContentLink');
     //var paperObject = find('#documentViewer');
     Ember.run(function(){
-      //stop();
+     // stop();
+     // $('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
+     //     //alert('stop');
+     //     console.log('onDocumentLoaded');
+     //     ok(true," flexpaper init");
+     //     start();
+     // });
       click("a#paperContentLink");
+      
        $('#paperContentLink').on('click',function(e){
+         
         ok(true, "clicked");
         start();
+        // setTimeout(function(){
+   //         ok(exists($('#documentViewer')));
+   // 
+   //       }, 3000);
+        
       });
-      //stop();
-       //setTimeout(function(){
-          //ok(exists($('#documentViewer')));
-          ////start();
-        //}, 3000);
-      //stop();
-      //$('#documentViewer').on('onDocumentLoaded',function(e,eventInfo){
-          ////alert('stop');
-          //ok(true," flexpaper init");
-          //start();
-      //});
-     });
+     
+    });
 
 
 
@@ -48,3 +51,18 @@ asyncTest('asynchronous test:paper render', function(){
 
 });
 
+asyncTest('asynchronous test2:paper render', function(){
+  expect(1);
+  Ember.run(function(){
+
+    click("a#paperContentLink");
+    
+     $('#paperContentLink').on('click',function(e){
+       
+      ok(true, "clicked");
+      start();
+
+    });
+   
+  });
+});

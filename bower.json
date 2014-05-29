@@ -17,6 +17,7 @@
     "slickquiz": "https://github.com/wcweb/SlickQuiz.git#master",
     "flexpaper": "https://github.com/wcweb/flexpaperClone.git#master",
     "bootstrap": "~3.0.0",
-    "jquery-cookie": "~1.4.1"
+    "jquery-cookie": "~1.4.1",
+    "sinon": "~1.10.0"
   }
 }
