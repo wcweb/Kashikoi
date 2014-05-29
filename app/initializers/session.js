@@ -38,8 +38,8 @@ export default {
   }
 };
 
-Ember.$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
-  if (!jqXHR.crossDomain) {
-    jqXHR.setRequestHeader('X-AUTHENTICATION-TOKEN', App.Session.get('authToken'));
-  }
-});
+// Ember.$.ajaxPrefilter(function(options, originalOptions, jqXHR) {
+//   if (!jqXHR.crossDomain) {
+//     jqXHR.setRequestHeader('X-AUTHENTICATION-TOKEN', application.Session.get('authToken'));
+//   }
+// });

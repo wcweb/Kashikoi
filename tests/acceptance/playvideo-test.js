@@ -1,7 +1,7 @@
-import { test , moduleFor } from 'kashikoi/tests/helpers/module-for';
+// import { test , moduleFor } from 'kashikoi/tests/helpers/module-for';
 var App;
 
-moduleFor('route:index','Acceptances - play video', {
+module('Acceptances - play video', {
   setup: function(){
     App = startApp();
     visit('/play-video');

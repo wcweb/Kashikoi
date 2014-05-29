@@ -34,6 +34,7 @@ module.exports = function(grunt) {
           proxyPath = grunt.config('express-server.options.proxyPath') || '/api';
       grunt.log.writeln('Proxying API requests matching ' + proxyPath + '/* to: ' + proxyURL);
 
+
       // Use API proxy
       app.all(proxyPath + '/*', passThrough(proxyURL));
     }
@@ -126,6 +127,7 @@ module.exports = function(grunt) {
 
   function passThrough(target) {
     return function(req, res) {
+      console.log(target + req.url.substr(4));
       req.pipe(request(target+req.url)).pipe(res);
     };
   }

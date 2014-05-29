@@ -1,8 +1,8 @@
 {
-  "name": "kashikoi",
+  "name": "kashikoi-app",
   "namespace": "kashikoi",
   "APIMethod": "proxy",
-  "proxyURL": "http://localhost:3000",
+  "proxyURL": "https://localhost:3000",
   "proxyPath": "/api",
   "docURL": "http://localhost:8000/docs/index.html",
   "version": "0.0.0",
